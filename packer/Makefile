@@ -23,19 +23,20 @@ test: install
 install: $(BUNDLE_CMD) bundle_install
 
 clean:
-    rm -rf chef-solo/cookbooks/*
+	rm -rf chef-solo/cookbooks/*
+
 
 build: clean install packer_build
 
 # Bundler itself:
 $(BUNDLE_CMD):
-    gem install bundler
+	gem install bundler
 
 bundle_install:
-    bundle install
+	bundle install
 
 berks_vendor: bundle_install
-    bundle exec berks vendor chef-solo/cookbooks
+	bundle exec berks vendor chef-solo/cookbooks
 
 packer_build: berks_vendor
-    packer build -var 'chef_version=latest' ubuntu-12.04-amd64.json
+	packer build -var 'chef_version=latest' ubuntu-12.04-amd64.json
