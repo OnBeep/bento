@@ -23,7 +23,7 @@ test: install
 install: $(BUNDLE_CMD) bundle_install
 
 clean:
-	rm -rf chef-solo/cookbooks/*
+	rm -rf chef-solo/cookbooks
 
 
 build: clean install packer_build
