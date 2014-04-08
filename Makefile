@@ -25,6 +25,9 @@ install: $(BUNDLE_CMD) bundle_install
 clean:
 	rm -rf packer/chef-solo/cookbooks/*
 
+build:
+	cd packer; make build
+
 # Bundler itself:
 $(BUNDLE_CMD):
 	gem install bundler
