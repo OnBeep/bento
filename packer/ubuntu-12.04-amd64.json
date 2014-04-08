@@ -107,7 +107,7 @@
   ],
   "post-processors": [
     {
-      "output": "../builds/{{.Provider}}/opscode_ubuntu-12.04_chef-{{user `chef_version`}}.box",
+      "output": "../builds/{{.Provider}}/opscode_ubuntu-12.04_chef-{{user `chef_version`}}-{{timestamp}}.box",
       "type": "vagrant"
     }
   ],
@@ -125,10 +125,16 @@
         "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
         "scripts/common/chef.sh",
+        "scripts/onbeep/collectd.sh",
         "scripts/ubuntu/cleanup.sh",
         "scripts/common/minimize.sh"
       ],
       "type": "shell"
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": [ "chef-solo/cookbooks" ],
+      "run_list": [ "onbeep_packer" ]
     }
   ],
   "variables": {
@@ -136,4 +142,3 @@
     "mirror": "http://releases.ubuntu.com"
   }
 }
-
