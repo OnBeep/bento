@@ -133,6 +133,8 @@
         "scripts/ubuntu/sudoers.sh",
         "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
+        "scripts/onbeep/packages.sh",
+        "scripts/onbeep/directories.sh",
         "scripts/common/chef.sh",
         "scripts/ubuntu/cleanup.sh",
         "scripts/common/minimize.sh"

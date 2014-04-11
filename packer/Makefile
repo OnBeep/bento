@@ -39,6 +39,9 @@ berks_vendor: bundle_install
 	bundle exec berks vendor chef-solo/cookbooks
 
 packer_build: berks_vendor
+	packer build -var 'chef_version=latest' -only=virtualbox-iso,amazon-ebs ubuntu-12.04-amd64.json
+
+packer_build_vbox: berks_vendor
 	packer build -var 'chef_version=latest' -only=virtualbox-iso ubuntu-12.04-amd64.json
 
 packer_build_ami:
