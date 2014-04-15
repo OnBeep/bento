@@ -7,4 +7,4 @@ packer_cache
 packer.log
 .DS_Store
 *.lock
-.vagrant
+.vagrant.d/
